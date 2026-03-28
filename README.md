@@ -26,7 +26,7 @@ log-analyzer-project/
 ## ▶️ How to Run
 
 1. Clone the repository:
-git clone https://github.com/<your-username>/log-analyzer-project.git
+git clone https://github.com/<chaitanyasonawan>/log-analyzer-project.git
 
 2. Navigate to the folder:
 cd log-analyzer-project
