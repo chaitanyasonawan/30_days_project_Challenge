@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Full Stack App</title>
+</head>
+<body>
+    <h1>Full Stack App Demo</h1>
+    <button onclick="fetchData()">Get Data from Backend</button>
+    <p id="output"></p>
+
+    <script>
+        function fetchData() {
+            fetch('http://backend:5000/data')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('output').innerText = data.message;
+            });
+        }
+    </script>
+</body>
+</html>
