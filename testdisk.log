@@ -1,0 +1,106 @@
+
+
+Tue Mar 31 13:28:57 2026
+Command line: TestDisk
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 5.15.0-173-generic (#183-Ubuntu SMP Fri Mar 6 13:29:34 UTC 2026) x86_64
+Compiler: GCC 11.2
+ext2fs lib: 1.46.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.3
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+/dev/sr0 is not an ATA disk
+Warning: can't get size for Disk /dev/loop5 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop6 - 0 B - 0 sectors, sector size=512
+Warning: can't get size for Disk /dev/loop7 - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 32 GB / 30 GiB - CHS 3916 255 63, sector size=512 - VMware, VMware Virtual S, FW:1.0
+Disk /dev/mapper/ubuntu--vg-ubuntu--lv - 30 GB / 28 GiB - 59187200 sectors, sector size=512 - VMware, VMware Virtual S, FW:1.0
+Disk /dev/sr0 - 2136 MB / 2037 MiB - 1043421 sectors (RO), sector size=2048 - VMware Virtual SATA CDRW Drive, S/N:01000000000000000001, FW:00000001
+Disk /dev/dm-0 - 30 GB / 28 GiB - 59187200 sectors, sector size=512 - VMware, VMware Virtual S, FW:1.0
+Disk /dev/loop0 - 67 MB / 63 MiB - 130960 sectors (RO), sector size=512
+Disk /dev/loop1 - 91 MB / 87 MiB - 178256 sectors (RO), sector size=512
+Disk /dev/loop2 - 96 MB / 91 MiB - 187728 sectors (RO), sector size=512
+Disk /dev/loop3 - 40 MB / 38 MiB - 79520 sectors (RO), sector size=512
+Disk /dev/loop4 - 50 MB / 48 MiB - 99056 sectors (RO), sector size=512
+
+Partition table type (auto): EFI GPT
+Disk /dev/sda - 32 GB / 30 GiB - VMware, VMware Virtual S
+Partition table type: EFI GPT
+
+Analyse Disk /dev/sda - 32 GB / 30 GiB - CHS 3916 255 63
+hdr_size=92
+hdr_lba_self=1
+hdr_lba_alt=62914559 (expected 62914559)
+hdr_lba_start=34
+hdr_lba_end=62914526
+hdr_lba_table=2
+hdr_entries=128
+hdr_entsz=128
+21686148 6449 6e6f 74 4e 65 65 64 45 46 49
+Current partition structure:
+ 1 P Unknown                     2048       4095       2048
+ 2 P Linux filesys. data         4096    3719167    3715072
+ 3 P Linux filesys. data      3719168   62914526   59195359
+
+search_part()
+Disk /dev/sda - 32 GB / 30 GiB - CHS 3916 255 63
+
+recover_EXT2: s_block_group_nr=0/14, s_mnt_count=3/4294967295, s_blocks_per_group=32768, s_inodes_per_group=7744
+recover_EXT2: s_blocksize=4096
+recover_EXT2: s_blocks_count 464384
+recover_EXT2: part_size 3715072
+Filesystem created: Tue Mar 10 15:30:21 2026
+Last mount time:    Mon Mar 30 17:49:49 2026
+     Linux filesys. data         4096    3719167    3715072
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 1902 MB / 1814 MiB
+
+LVM2 magic value at 231/129/27
+part_size 38221824
+     Linux LVM                3719168   41940991   38221824
+     LVM2, 19 GB / 18 GiB
+Search for partition aborted
+
+Results
+   P Linux filesys. data         4096    3719167    3715072
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 1902 MB / 1814 MiB
+   P Linux LVM                3719168   41940991   38221824
+     LVM2, 19 GB / 18 GiB
+
+Hint for advanced users: dmsetup may be used if you prefer to avoid rewriting the partition table for the moment:
+echo "0 3715072 linear /dev/sda 4096" | dmsetup create test0
+echo "0 38221824 linear /dev/sda 3719168" | dmsetup create test1
+
+interface_write()
+ 1 P Linux filesys. data         4096    3719167    3715072
+ 2 P Linux LVM                3719168   41940991   38221824
+
+search_part()
+Disk /dev/sda - 32 GB / 30 GiB - CHS 3916 255 63
+
+recover_EXT2: s_block_group_nr=0/14, s_mnt_count=3/4294967295, s_blocks_per_group=32768, s_inodes_per_group=7744
+recover_EXT2: s_blocksize=4096
+recover_EXT2: s_blocks_count 464384
+recover_EXT2: part_size 3715072
+Filesystem created: Tue Mar 10 15:30:21 2026
+Last mount time:    Mon Mar 30 17:49:49 2026
+     Linux filesys. data         4096    3719167    3715072
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 1902 MB / 1814 MiB
+
+LVM2 magic value at 231/129/27
+part_size 38221824
+     Linux LVM                3719168   41940991   38221824
+     LVM2, 19 GB / 18 GiB
+Search for partition aborted
+
+Results
+   P Linux filesys. data         4096    3719167    3715072
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 1902 MB / 1814 MiB
+   P Linux LVM                3719168   41940991   38221824
+     LVM2, 19 GB / 18 GiB
+
+Hint for advanced users: dmsetup may be used if you prefer to avoid rewriting the partition table for the moment:
+echo "0 3715072 linear /dev/sda 4096" | dmsetup create test0
+echo "0 38221824 linear /dev/sda 3719168" | dmsetup create test1
+SIGINT detected! TestDisk has been killed.
