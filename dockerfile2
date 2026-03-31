@@ -1,0 +1,26 @@
+# Step 1: Start with Python image
+FROM python:3.11-slim
+# I am using Python 3.11 slim version because it's small and easy to use
+
+# Step 2: Set working folder
+WORKDIR /app
+# This means "all my files and commands will happen in /app inside container"
+
+# Step 3: Copy my app files
+COPY ./app /app
+# Copy everything from my local app folder into the container
+
+# Step 4: Install Python packages
+RUN pip install --no-cache-dir -r requirements.txt
+# This installs all libraries my app needs
+# --no-cache-dir = makes image smaller
+
+# Step 5: Open the port for browser
+EXPOSE 5000
+# Flask usually runs on 5000
+# This tells Docker “this is the door to my app”
+
+# Step 6: Start the Flask app
+CMD ["python", "app.py"]
+# CMD = what happens when container starts
+# Here, it runs my Flask app so I can see it in browser

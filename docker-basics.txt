@@ -1,0 +1,99 @@
+Docker Basics – Student Notes
+
+1. What is Docker?
+
+Docker is a tool to run apps in containers.
+Container = a small package with everything your app needs (code, libraries, system tools).
+Think of it as a lunchbox: you pack your app and all its stuff, and it works anywhere.
+Unlike virtual machines, containers are lightweight and fast.
+
+2. Why use Docker?
+
+Makes apps work anywhere (Windows, Mac, Linux).
+Easy to share apps with team or company.
+Helps to avoid “works on my machine” problem.
+Good for learning DevOps and CI/CD.
+
+3. Key Docker Concepts
+
+a) Image
+
+Template for container.
+Like a blueprint of your app.
+Can be reused many times.
+
+b) Container
+
+Running app from an image.
+Like turning blueprint into a real building.
+Can start, stop, delete easily.
+
+c) Dockerfile
+
+A text file where we write steps to make an image.
+Example steps: FROM, COPY, RUN, EXPOSE, CMD.
+Tells Docker: “how to build my app image.”
+
+d) Docker Hub
+
+Online place to find and share Docker images.
+Example: Nginx, Python, Node.js images.
+
+4. Basic Docker Commands
+
+Check Docker version:
+
+docker --version
+
+Build an image:
+
+docker build -t myapp .
+-t myapp → name of image
+. → current folder where Dockerfile is
+
+Run a container:
+
+docker run -p 8080:80 myapp
+-p 8080:80 → map container port 80 to local port 8080
+myapp → image name
+
+See running containers:
+
+docker ps
+
+Stop a container:
+
+docker stop <container_id>
+
+Remove a container:
+
+docker rm <container_id>
+
+Remove an image:
+
+docker rmi <image_name>
+
+5. Dockerfile Common Commands
+
+FROM <image> → start from a base image
+COPY <src> <dest> → copy files into container
+WORKDIR <folder> → set working directory
+RUN <command> → run a command during build
+ENV <var>=<value> → set environment variable
+EXPOSE <port> → open a port
+CMD ["command"] → command to run when container starts
+
+6. How Docker Works (Simple Way)
+
+Write a Dockerfile → defines the app.
+Build it → creates image.
+Run it → creates container.
+Container can be stopped, restarted, shared.
+
+7. Tips for Students/Interns
+
+Always start with simple apps like “Hello World”.
+Try Nginx or Python Flask examples.
+Use Docker Hub images to save time.
+Remember: Image = blueprint, Container = running app.
+Use small images (like slim versions) to keep things fast.
